@@ -85,6 +85,7 @@ const CourseInfo = {
     let ids = []
     let assignment_id = []
     let possiblePoints = []
+    let studentPoints = []
 
     // Get Ids
     for (let i = 0; i < submissions.length; i++)
@@ -131,9 +132,23 @@ const CourseInfo = {
        
     }
 
+
+    // Get Scores for each student 
+    for(i = 0; i < this.submission.length; i++)
+    {
+            if (assignment_id.includes(submissions[i].assignment_id))
+            {
+                studentPoints.push(submissions[i].submission.score)
+            }
+    }
+    let s2 = studentPoints.splice(-2)
+    console.log(s2)
+        
+    
     console.log(ids)
     console.log(assignment_id)
     console.log(possiblePoints)
+    console.log(studentPoints)
 
       // const result = [
     //     {
