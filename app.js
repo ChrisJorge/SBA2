@@ -84,6 +84,9 @@ const CourseInfo = {
     
     let ids = []
     let assignment_id = []
+    let possiblePoints = []
+
+    // Get Ids
     for (let i = 0; i < submissions.length; i++)
     {
         
@@ -103,6 +106,8 @@ const CourseInfo = {
         }
     }
     
+
+    // Get Assignment Id's
     let y = 0;
     while (y < ag.assignments.length)
     {
@@ -115,7 +120,21 @@ const CourseInfo = {
         y++
         
     }
+
+    // Get possible assignment scores
+    for (i = 0; i < ag.assignments.length; i++)
+    {
+        if(assignment_id.includes(ag.assignments[i].id) && !(possiblePoints.includes(ag.assignments[i].points_possible)))
+        {
+            possiblePoints.push(ag.assignments[i].points_possible)
+        }
+       
+    }
+
+    console.log(ids)
     console.log(assignment_id)
+    console.log(possiblePoints)
+
       // const result = [
     //     {
     //       id: 125,
