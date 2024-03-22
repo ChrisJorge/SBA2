@@ -78,26 +78,45 @@ const CourseInfo = {
   
   function getLearnerData(course, ag, submissions) {
     // here, we would process this data to achieve the desired result.
+    this.course = course 
+    this.ag = ag
+    this.submission = submissions
     
-    const result = [
-      {
-        id: 125,
-        avg: 0.985, // (47 + 150) / (50 + 150)
-        1: 0.94, // 47 / 50
-        2: 1.0 // 150 / 150
-      },
-      {
-        id: 132,
-        avg: 0.82, // (39 + 125) / (50 + 150)
-        1: 0.78, // 39 / 50
-        2: 0.833 // late: (140 - 15) / 150
-      }
-    ];
-  
-    return result;
+    let ids = []
+    let assignment_id = []
+    for (let i = 0; i < submissions.length; i++)
+    {
+        
+        if (ids.includes(submissions[i].learner_id) )
+        {
+            continue
+        }
+        else{
+            ids.push(submissions[i].learner_id)
+        }
+
+    }
+    console.log(ids)
+
+    // const result = [
+    //     {
+    //       id: 125,
+    //       avg: 0.985, // (47 + 150) / (50 + 150)
+    //       1: 0.94, // 47 / 50
+    //       2: 1.0 // 150 / 150
+    //     },
+    //     {
+    //       id: 132,
+    //       avg: 0.82, // (39 + 125) / (50 + 150)
+    //       1: 0.78, // 39 / 50
+    //       2: 0.833 // late: (140 - 15) / 150
+    //     }
+    //   ];
   }
+
   
   const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
   
-  console.log(result);
+//   console.log(result);
   
+
