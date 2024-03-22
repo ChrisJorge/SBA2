@@ -102,6 +102,19 @@ const CourseInfo = {
             assignment_id.push(submission[i].assignment_id)
         }
     }
+    
+    let y = 0;
+    while (y < ag.assignments.length)
+    {
+        if(ag.assignments[y].due_at > '2024-03-22')
+        {
+            let del = (assignment_id.indexOf(ag.assignments[y].id))
+            delete assignment_id[del]
+
+        }
+        y++
+        
+    }
     console.log(assignment_id)
       // const result = [
     //     {
@@ -123,5 +136,4 @@ const CourseInfo = {
   const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
   
 //   console.log(result);
-
-
+// console.log(AssignmentGroup.assignments[0].id)
