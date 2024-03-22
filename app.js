@@ -89,16 +89,21 @@ const CourseInfo = {
         
         if (ids.includes(submissions[i].learner_id) )
         {
-            continue
+          
         }
         else{
             ids.push(submissions[i].learner_id)
         }
-
+        if (assignment_id.includes(submissions[i].assignment_id))
+        {
+            
+        }
+        else{
+            assignment_id.push(submission[i].assignment_id)
+        }
     }
-    console.log(ids)
-
-    // const result = [
+    console.log(assignment_id)
+      // const result = [
     //     {
     //       id: 125,
     //       avg: 0.985, // (47 + 150) / (50 + 150)
@@ -118,5 +123,5 @@ const CourseInfo = {
   const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
   
 //   console.log(result);
-  
+
 
