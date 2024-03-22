@@ -115,12 +115,13 @@ const CourseInfo = {
         if(ag.assignments[y].due_at > '2024-03-22')
         {
             let del = (assignment_id.indexOf(ag.assignments[y].id))
-            delete assignment_id[del]
+             assignment_id.splice(del)
 
         }
         y++
         
     }
+
 
     // Get possible assignment scores
     for (i = 0; i < ag.assignments.length; i++)
@@ -141,14 +142,13 @@ const CourseInfo = {
                 studentPoints.push(submissions[i].submission.score)
             }
     }
-    let s2 = studentPoints.splice(-2)
-    console.log(s2)
-        
     
-    console.log(ids)
-    console.log(assignment_id)
-    console.log(possiblePoints)
-    console.log(studentPoints)
+    let s2 = studentPoints.splice(assignment_id.length * -1)
+    console.log(`Student Ids ${ids}`)
+    console.log(`Assignment Ids ${assignment_id}`)
+    console.log(`Possible Points ${possiblePoints}`)
+    console.log(`Student one points ${studentPoints}`)
+    console.log(`Student two points ${s2}`)
 
       // const result = [
     //     {
