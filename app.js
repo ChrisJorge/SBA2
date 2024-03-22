@@ -126,7 +126,7 @@ const CourseInfo = {
     // Get possible assignment scores
     for (i = 0; i < ag.assignments.length; i++)
     {
-        if(assignment_id.includes(ag.assignments[i].id) && !(possiblePoints.includes(ag.assignments[i].points_possible)))
+        if(assignment_id.includes(ag.assignments[i].id))
         {
             possiblePoints.push(ag.assignments[i].points_possible)
         }
