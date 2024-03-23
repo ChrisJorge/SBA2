@@ -147,7 +147,7 @@ const CourseInfo = {
                 studentPoints[index] = data
             }
             else{
-                
+                continue;
             }
         }
     }
