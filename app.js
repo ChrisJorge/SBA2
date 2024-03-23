@@ -143,7 +143,7 @@ const CourseInfo = {
             if(assignment_id[i] === submissions[j].assignment_id && submissions[j].submission.submitted_at > ag.assignments[i].due_at)
             {
                 let index = (studentPoints.indexOf(submissions[j].submission.score))
-                studentPoints[index] = Math.floor(submissions[j].submission.score - (submissions[j].submission.score * .1))
+                studentPoints[index] = Math.floor(submissions[j].submission.score - (ag.assignments[i].points_possible * .1))
             }
             else{
                 
