@@ -198,9 +198,16 @@ const CourseInfo = {
 
     for (i = 0; i < assignment_id.length; i++)
     {
+        if (i === 0){ 
+            obj = new Obj(ids[i], avg[i], assignment_student1[i], assignment_student1[i + 1]);
+        }
+        else if(i === 1){
+            obj = new Obj(ids[i], avg[i], assignment_student2[i - 1], assignment_student2[i]);
+        }
 
-        let obj = new Obj(ids[i], avg[i], assignment_student1[i], assignment_student2[i]);
         result.push(obj)
+            
+             
     }
 
   return(result)
