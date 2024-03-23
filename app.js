@@ -125,20 +125,26 @@ const CourseInfo = {
              assignment_id.splice(del)
 
         }
+
+        if(assignment_id.includes(ag.assignments[y].id))
+        {
+            possiblePoints.push(ag.assignments[y].points_possible)
+        }
+       
         y++
         
     }
 
 
     // Get possible assignment scores
-    for (i = 0; i < ag.assignments.length; i++)
-    {
-        if(assignment_id.includes(ag.assignments[i].id))
-        {
-            possiblePoints.push(ag.assignments[i].points_possible)
-        }
+    // for (i = 0; i < ag.assignments.length; i++)
+    // {
+    //     if(assignment_id.includes(ag.assignments[i].id))
+    //     {
+    //         possiblePoints.push(ag.assignments[i].points_possible)
+    //     }
        
-    }
+    // }
 
     // Get Scores for each student 
     // for(i = 0; i < this.submission.length; i++)
@@ -197,16 +203,25 @@ const CourseInfo = {
 
 
     let result = []
-    let obj = {}
+    
+    function Obj (id, avg, s1, s2) {
+        this.id = id;
+        this.avg = avg;
+        this.s1 = s1;
+        this.s2 = s2;
+    }
 
     for (i = 0; i < assignment_id.length; i++)
     {
-        obj["id"] = ids[i];
-        obj["avg"] = avg[i];
-        obj["1"] = assignment_student1[i];
-        obj["2"] = assignment_student2[i];
+
+        let obj = new Obj(ids[i], avg[i], assignment_student1[i], assignment_student2[i]);
+        // obj["id"] = ids[i];
+        // obj["avg"] = avg[i];
+        // obj["1"] = assignment_student1[i];
+        // obj["2"] = assignment_student2[i];
         result.push(obj)
     }
+
     console.log(result)
       // const result = [
     //     {
