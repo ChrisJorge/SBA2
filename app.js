@@ -166,7 +166,7 @@ const CourseInfo = {
     // Calculate Average
     for(i = 0; i < studentPoints.length && i < s2.length; i++)
     {
-       assignment_student1.push(studentPoints[i] / possiblePoints[i])
+       assignment_student1.push(Number((studentPoints[i] / possiblePoints[i]).toFixed(2)))
        assignment_student2.push(Number((s2[i] / possiblePoints[i]).toFixed(2)))
 
        score1 += studentPoints[i]
