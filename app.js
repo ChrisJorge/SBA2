@@ -188,6 +188,19 @@ const CourseInfo = {
     console.log(`Student one points ${studentPoints}`)
     console.log(`Student two points ${s2}`)
 
+
+    let result = []
+    let obj = {}
+
+    for (i = 0; i < assignment_id.length; i++)
+    {
+        obj["id"] = ids[i];
+        obj["avg"] = avg[i];
+        obj["1"] = assignment_student1[i];
+        obj["2"] = assignment_student2[i];
+        result.push(obj)
+    }
+    console.log(result)
       // const result = [
     //     {
     //       id: 125,
