@@ -136,26 +136,6 @@ const CourseInfo = {
     }
 
 
-    // Get possible assignment scores
-    // for (i = 0; i < ag.assignments.length; i++)
-    // {
-    //     if(assignment_id.includes(ag.assignments[i].id))
-    //     {
-    //         possiblePoints.push(ag.assignments[i].points_possible)
-    //     }
-       
-    // }
-
-    // Get Scores for each student 
-    // for(i = 0; i < this.submission.length; i++)
-    // {
-    //         if (assignment_id.includes(submissions[i].assignment_id))
-    //         {
-    //             studentPoints.push(submissions[i].submission.score)
-    //         }
-
-    // }
-
     // Check If assignments were handed in late or not
     for(i = 0; i < assignment_id.length; i++)
     {
@@ -189,17 +169,20 @@ const CourseInfo = {
        score2 += s2[i]
        divide += possiblePoints[i]
     }
-    console.log(assignment_student1)
-    console.log(assignment_student2)
-    console.log(`Score1: ${score1} Score2: ${score2} Divide: ${divide}`)
-    avg.push(score1 / divide)
-    avg.push(score2 / divide)
-    console.log(avg)
-    console.log(`Student Ids ${ids}`)
-    console.log(`Assignment Ids ${assignment_id}`)
-    console.log(`Possible Points ${possiblePoints}`)
-    console.log(`Student one points ${studentPoints}`)
-    console.log(`Student two points ${s2}`)
+
+    // console.logs testing to make sure all outputs are functioning correctly 
+
+    // console.log(assignment_student1)
+    // console.log(assignment_student2)
+    // console.log(`Score1: ${score1} Score2: ${score2} Divide: ${divide}`)
+    // avg.push(score1 / divide)
+    // avg.push(score2 / divide)
+    // console.log(avg)
+    // console.log(`Student Ids ${ids}`)
+    // console.log(`Assignment Ids ${assignment_id}`)
+    // console.log(`Possible Points ${possiblePoints}`)
+    // console.log(`Student one points ${studentPoints}`)
+    // console.log(`Student two points ${s2}`)
 
 
     let result = []
@@ -215,10 +198,6 @@ const CourseInfo = {
     {
 
         let obj = new Obj(ids[i], avg[i], assignment_student1[i], assignment_student2[i]);
-        // obj["id"] = ids[i];
-        // obj["avg"] = avg[i];
-        // obj["1"] = assignment_student1[i];
-        // obj["2"] = assignment_student2[i];
         result.push(obj)
     }
 
