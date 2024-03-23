@@ -169,14 +169,14 @@ const CourseInfo = {
        score2 += s2[i]
        divide += possiblePoints[i]
     }
+    avg.push(score1 / divide)
+    avg.push(score2 / divide)
 
     // console.logs testing to make sure all outputs are functioning correctly 
 
     // console.log(assignment_student1)
     // console.log(assignment_student2)
     // console.log(`Score1: ${score1} Score2: ${score2} Divide: ${divide}`)
-    // avg.push(score1 / divide)
-    // avg.push(score2 / divide)
     // console.log(avg)
     // console.log(`Student Ids ${ids}`)
     // console.log(`Assignment Ids ${assignment_id}`)
@@ -201,25 +201,11 @@ const CourseInfo = {
         result.push(obj)
     }
 
-    console.log(result)
-      // const result = [
-    //     {
-    //       id: 125,
-    //       avg: 0.985, // (47 + 150) / (50 + 150)
-    //       1: 0.94, // 47 / 50
-    //       2: 1.0 // 150 / 150
-    //     },
-    //     {
-    //       id: 132,
-    //       avg: 0.82, // (39 + 125) / (50 + 150)
-    //       1: 0.78, // 39 / 50
-    //       2: 0.833 // late: (140 - 15) / 150
-    //     }
-    //   ];
+  return(result)
   }
 
   
   const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
   
-//   console.log(result);
+  console.log(result);
 // console.log(AssignmentGroup.assignments[0].id)
