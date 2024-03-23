@@ -143,7 +143,7 @@ const CourseInfo = {
             if(assignment_id[i] === submissions[j].assignment_id && submissions[j].submission.submitted_at > ag.assignments[i].due_at)
             {
                 let index = (studentPoints.indexOf(submissions[j].submission.score))
-                studentPoints[index] = Math.floor(submissions[j].submission.score - (ag.assignments[i].points_possible * .1))
+                studentPoints[index] = (submissions[j].submission.score - (ag.assignments[i].points_possible * .1))
             }
             else{
                 
@@ -230,7 +230,7 @@ const CourseInfo = {
 // console.log(AssignmentGroup.assignments[0].id)
 
 
-// Attempt to get the 1 and 2 to be numbers for object item
+// Attempt to get the 1 and 2 to be numbers for object item 
 
 // const formatData = (data, result) => {     
     // for (let i = 0; i < data.length; i++) {        
