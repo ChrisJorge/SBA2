@@ -87,7 +87,7 @@ const CourseInfo = {
     let possiblePoints = []
     let studentPoints = []
 
-    // Get Ids
+    // Get Ids and submissions
     for (let i = 0; i < submissions.length; i++)
     {
         
@@ -165,13 +165,19 @@ const CourseInfo = {
     let divide = 0;
     let s2 = studentPoints.splice(assignment_id.length * -1)
     let avg = []
+    let assignment_student1 = []
+    let assignment_student2= []
     // Calculate Average
     for(i = 0; i < studentPoints.length && i < s2.length; i++)
     {
+       assignment_student1.push(studentPoints[i] / possiblePoints[i])
+       assignment_student2.push(s2[i] / possiblePoints[i])
        score1 += studentPoints[i]
        score2 += s2[i]
        divide += possiblePoints[i]
     }
+    console.log(assignment_student1)
+    console.log(assignment_student2)
     console.log(`Score1: ${score1} Score2: ${score2} Divide: ${divide}`)
     avg.push(score1 / divide)
     avg.push(score2 / divide)
