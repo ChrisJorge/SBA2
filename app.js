@@ -143,13 +143,16 @@ const CourseInfo = {
             if(assignment_id[i] === submissions[j].assignment_id && submissions[j].submission.submitted_at > ag.assignments[i].due_at)
             {
                 let index = (studentPoints.indexOf(submissions[j].submission.score))
-                studentPoints[index] = (submissions[j].submission.score - (ag.assignments[i].points_possible * .1))
+                let data = (submissions[j].submission.score - (ag.assignments[i].points_possible * .1))
+                studentPoints[index] = data
             }
             else{
                 
             }
         }
     }
+
+    
 
     
     let score1 = 0;
@@ -164,7 +167,7 @@ const CourseInfo = {
     for(i = 0; i < studentPoints.length && i < s2.length; i++)
     {
        assignment_student1.push(studentPoints[i] / possiblePoints[i])
-       assignment_student2.push(s2[i] / possiblePoints[i])
+       assignment_student2.push(Number((s2[i] / possiblePoints[i]).toFixed(2)))
 
        score1 += studentPoints[i]
        score2 += s2[i]
