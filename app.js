@@ -132,7 +132,6 @@ const CourseInfo = {
         }
        
         y++
-        
     }
 
 
@@ -160,17 +159,20 @@ const CourseInfo = {
     let avg = []
     let assignment_student1 = []
     let assignment_student2= []
+
     // Calculate Average
     for(i = 0; i < studentPoints.length && i < s2.length; i++)
     {
        assignment_student1.push(studentPoints[i] / possiblePoints[i])
        assignment_student2.push(s2[i] / possiblePoints[i])
+
        score1 += studentPoints[i]
        score2 += s2[i]
        divide += possiblePoints[i]
     }
     avg.push(score1 / divide)
     avg.push(score2 / divide)
+
 
     // console.logs testing to make sure all outputs are functioning correctly 
 
@@ -190,8 +192,8 @@ const CourseInfo = {
     function Obj (id, avg, s1, s2) {
         this.id = id;
         this.avg = avg;
-        this.s1 = s1;
-        this.s2 = s2;
+        this[1] = s1;
+        this[2] = s2;
     }
 
     for (i = 0; i < assignment_id.length; i++)
@@ -204,8 +206,31 @@ const CourseInfo = {
   return(result)
   }
 
-  
-  const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
-  
-  console.log(result);
+  try{
+    if (CourseInfo.id === AssignmentGroup.course_id)
+    {
+        const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
+        console.log(result);
+    }
+    else
+    {
+        throw new error('Error Couse ID and Assignment Group Course ID not the same')
+    }
+  }
+  catch (error){
+    console.error(error);
+  }
 // console.log(AssignmentGroup.assignments[0].id)
+
+
+// Attempt to get the 1 and 2 to be numbers for object item
+
+// const formatData = (data, result) => {     
+    // for (let i = 0; i < data.length; i++) {        
+    //      const learner = data[i];         
+    //      for (let j = 0; j < learner.assignments.length; j++) {             
+    //         const assignment = learner.assignments[j];             
+    //         const assignmentKey = ${assignment.assignment_id};             
+    //         learner[assignmentKey] = assignment.score / assignment.points_possible;         
+    //     }         // Now remove the 'assignments' property from the learner object         
+    //     delete learner.assignments;         result.push(learner);     } }
