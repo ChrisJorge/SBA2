@@ -87,7 +87,7 @@ const CourseInfo = {
     let possiblePoints = []
     let studentPoints = []
 
-    // Get Ids and submissions
+    // Get Ids, submissions, and scores
     for (let i = 0; i < submissions.length; i++)
     {
         
@@ -98,6 +98,7 @@ const CourseInfo = {
         else{
             ids.push(submissions[i].learner_id)
         }
+
         if (assignment_id.includes(submissions[i].assignment_id))
         {
             
@@ -105,6 +106,12 @@ const CourseInfo = {
         else{
             assignment_id.push(submission[i].assignment_id)
         }
+
+        if (assignment_id.includes(submissions[i].assignment_id))
+        {
+            studentPoints.push(submissions[i].submission.score)
+        }
+
     }
     
 
@@ -134,14 +141,14 @@ const CourseInfo = {
     }
 
     // Get Scores for each student 
-    for(i = 0; i < this.submission.length; i++)
-    {
-            if (assignment_id.includes(submissions[i].assignment_id))
-            {
-                studentPoints.push(submissions[i].submission.score)
-            }
+    // for(i = 0; i < this.submission.length; i++)
+    // {
+    //         if (assignment_id.includes(submissions[i].assignment_id))
+    //         {
+    //             studentPoints.push(submissions[i].submission.score)
+    //         }
 
-    }
+    // }
 
     // Check If assignments were handed in late or not
     for(i = 0; i < assignment_id.length; i++)
