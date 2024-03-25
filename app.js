@@ -166,6 +166,13 @@ function getLearnerData(course, ag, submissions) {
   // Calculate Average
   for(i = 0; i < studentPoints.length && i < s2.length; i++)
   {
+    // Checking to make sure the assignment points is not 0
+    if (possiblePoints[i] === 0)
+    {
+      possiblePoints[i] = 1
+      studentPoints[i] = 0
+      s2[i] = 0
+    }
      assignment_student1.push(Number((studentPoints[i] / possiblePoints[i]).toFixed(2)))
      assignment_student2.push(Number((s2[i] / possiblePoints[i]).toFixed(2)))
 
@@ -173,8 +180,8 @@ function getLearnerData(course, ag, submissions) {
      score2 += s2[i]
      divide += possiblePoints[i]
   }
-  avg.push(score1 / divide)
-  avg.push(score2 / divide)
+  avg.push(Number((score1 / divide).toFixed(2)))
+  avg.push(Number((score2 / divide).toFixed(2)))
 
 
   // console.logs testing to make sure all outputs are functioning correctly 
@@ -202,14 +209,12 @@ function getLearnerData(course, ag, submissions) {
   for (i = 0; i < assignment_id.length; i++)
   {
       if (i === 0){ 
-          obj = new Obj(ids[i], avg[i], assignment_student1[i], assignment_student1[i + 1]);
+          result.push(new Obj(ids[i], avg[i], assignment_student1[i], assignment_student1[i + 1]));
       }
       else if(i === 1){
-          obj = new Obj(ids[i], avg[i], assignment_student2[i - 1], assignment_student2[i]);
+          result.push(new Obj(ids[i], avg[i], assignment_student2[i - 1], assignment_student2[i]));
       }
 
-      result.push(obj)
-          
            
   }
 
@@ -230,4 +235,4 @@ try{
 catch (error){
   console.error(error);
 }
-// console.log(AssignmentGroup.assignments[0].id)
+
